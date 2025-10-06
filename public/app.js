@@ -79,7 +79,6 @@ function renderizarCards() {
     });
 }
 
-
 function irParaDetalhes(id) {
     window.location.href = `detalhes.html?id=${id}`;
 }
