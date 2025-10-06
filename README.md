@@ -13,14 +13,14 @@ Leia o enunciado completo no Canvas.
 
 ## Informações Gerais
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: Gustavo Henrique Fernandes Santana
+- Matricula: 906187
+- Proposta de projeto escolhida: Tipografia Suíça
+- Breve descrição sobre seu projeto: Este projeto tem como objetivo desenvolver uma aplicação web que apresente a Tipografia Suíça, também conhecida como Estilo Tipográfico Internacional. A homepage terá um design inspirado nos próprios princípios do estilo — clareza, simplicidade, uso de grids e tipografia sem serifa. O conteúdo será dividido em seções que exploram sua história, os designers mais influentes, os princípios fundamentais e uma galeria de obras icônicas.
 
 ## Print da Home-Page
 
-<<  COLOQUE A IMAGEM AQUI >>
+![Print da home-page criada](public/img/site.png)
 
 ## Print da página de detalhes do item
 
