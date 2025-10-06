@@ -79,7 +79,76 @@ function renderizarCards() {
     });
 }
 
+
+function irParaDetalhes(id) {
+    window.location.href = `detalhes.html?id=${id}`;
+}
+
+function obterParametroURL(nome) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(nome);
+}
+
+function renderizarDetalhes() {
+    const detalhesContainer = document.getElementById('detalhes-container');
+    
+    if (!detalhesContainer) return;
+    
+    const itemId = parseInt(obterParametroURL('id'));
+    
+    const item = itensSwissStyle.find(i => i.id === itemId);
+    
+    if (!item) {
+        detalhesContainer.innerHTML = `
+            <div class="alert alert-warning" role="alert">
+                <h4 class="alert-heading">Item não encontrado!</h4>
+                <p>O item solicitado não foi encontrado em nossa base de dados.</p>
+                <hr>
+                <p class="mb-0"><a href="index.html" class="alert-link">Voltar para a página inicial</a></p>
+            </div>
+        `;
+        return;
+    }
+    
+    detalhesContainer.innerHTML = `
+        <div class="row">
+            <div class="col-12 mb-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">${item.titulo}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <img src="${item.imagem}" alt="${item.titulo}" class="img-fluid rounded shadow">
+            </div>
+            
+            <div class="col-lg-6">
+                <h1 class="display-4 mb-3">${item.titulo}</h1>
+                
+                <div class="mb-4">
+                    <span class="badge bg-secondary me-2">Ano: ${item.ano}</span>
+                    <span class="badge bg-secondary">Local: ${item.local}</span>
+                </div>
+                
+                <p class="lead">${item.descricaoCompleta}</p>
+                
+                <h3 class="mt-5 mb-3">Características Principais</h3>
+                <ul class="list-group list-group-flush">
+                    ${item.caracteristicas.map(carac => `
+                        <li class="list-group-item">${carac}</li>
+                    `).join('')}
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     renderizarCards();
-    
+    renderizarDetalhes();
 });
